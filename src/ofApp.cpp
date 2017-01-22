@@ -1,13 +1,22 @@
 #include "ofApp.h"
+#include "ofxGPIO.h"
+
+GPIO gpio4;
+string state_sensor;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofBackground(0,0,0);
+    gpio4.setup("4");
+    gpio4.export_gpio();
+    gpio4.setdir_gpio("in");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    gpio4.getval_gpio(state_sensor);
+    ofLog() << "motion: " << state_sensor;
+    sleep(1);
 }
 
 //--------------------------------------------------------------
@@ -18,7 +27,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     ofBackground(255,0,255);
-    cout << ofSystem("raspistill -n -o images/image.jpg");
+    ofSystem("raspistill -n -o images/image.jpg");
 }
 
 //--------------------------------------------------------------

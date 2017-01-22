@@ -409,7 +409,17 @@ obj/linuxarmv6l/Release/src/ofApp.o: \
  /home/pi/openFrameworks/libs/openFrameworks/video/ofVideoPlayer.h \
  /home/pi/openFrameworks/libs/openFrameworks/video/ofGstVideoPlayer.h \
  /home/pi/openFrameworks/libs/openFrameworks/3d/ofCamera.h \
- /home/pi/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h
+ /home/pi/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/ofxGPIO.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/gpio.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/i2cBus.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/SPI2.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/rpiPWM1.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/MCP.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/font.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/ReadRawData.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/GETGoogleImage.h \
+ /home/pi/openFrameworks/addons/ofxGPIO/src/LED.h
 
 /home/pi/openFrameworks/examples/empty/transfashional-london/src/ofApp.h:
 
@@ -1272,3 +1282,23 @@ obj/linuxarmv6l/Release/src/ofApp.o: \
 /home/pi/openFrameworks/libs/openFrameworks/3d/ofCamera.h:
 
 /home/pi/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/ofxGPIO.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/gpio.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/i2cBus.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/SPI2.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/rpiPWM1.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/MCP.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/font.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/ReadRawData.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/GETGoogleImage.h:
+
+/home/pi/openFrameworks/addons/ofxGPIO/src/LED.h:
