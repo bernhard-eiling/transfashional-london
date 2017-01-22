@@ -17,7 +17,8 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    ofBackground(255,0,255);
+    cout << ofSystem("raspistill -n -o images/image.jpg");
 }
 
 //--------------------------------------------------------------
