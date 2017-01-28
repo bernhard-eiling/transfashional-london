@@ -18,6 +18,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    imageBlender.update();
    // gpio4.getval_gpio(state_sensor);
    // ofLog() << "motion: " << state_sensor;
    // sleep(1);

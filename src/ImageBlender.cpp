@@ -21,14 +21,24 @@ void ImageBlender::blendImage(ofImage image) {
 }
 
 void ImageBlender::update() {
-    
+    if (scaleForegroundImage > 1.0) {
+        scaleForegroundImage *= 0.995;
+    }
+    if (scaleForegroundImage < 1.0) {
+        scaleForegroundImage = 1.0;
+    }
 }
 
 void ImageBlender::draw() {
     ImagePoint position = imageUtils.getImagePosition(backgroundImage);
     ImageSize size = imageUtils.getImageSize(backgroundImage);
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+    float width =  size.width * scaleForegroundImage;
+    float height = size.height * scaleForegroundImage;
+    float xPos = (position.x - width / 2) + size.width / 2.0;
+    float yPos = (position.y - height / 2) + size.height / 2.0;
     backgroundImage.draw(position.x, position.y, size.width, size.height);
-    foregroundImage.draw(position.x, position.y, size.width, size.height);
+    foregroundImage.draw(xPos, yPos, width, height);
     ofDisableBlendMode();
 }
+
