@@ -15,6 +15,11 @@ ImageBlender::ImageBlender() {
     scaleForegroundImage = 1.0;
 }
 
+
+void ImageBlender::didTakePicture(ofImage image) {
+    ofLog() << "picture taken ";
+}
+
 void ImageBlender::blendImage(ofImage image) {
     foregroundImage = image;
     scaleForegroundImage = 1.2;
@@ -38,7 +43,9 @@ void ImageBlender::draw() {
     float xPos = (position.x - width / 2) + size.width / 2.0;
     float yPos = (position.y - height / 2) + size.height / 2.0;
     backgroundImage.draw(position.x, position.y, size.width, size.height);
-    foregroundImage.draw(xPos, yPos, width, height);
+    if (foregroundImage.isAllocated()) {
+        foregroundImage.draw(xPos, yPos, width, height);
+    }
     ofDisableBlendMode();
 }
 

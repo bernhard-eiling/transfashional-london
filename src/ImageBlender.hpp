@@ -17,13 +17,15 @@ class ImageBlender {
 public:
     ImageBlender();
     ofImage backgroundImage;
+    ofImage foregroundImage;
     void blendImage(ofImage image);
     void update();
     void draw();
+    void didTakePicture(ofImage image);
     
 private:
     ImageUtils imageUtils;
-    ofImage foregroundImage;
+    
     bool animating;
     float scaleForegroundImage;
     float getXPosImages();
