@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "ImageBlender.hpp"
 #include "CameraThread.h"
-#include "Camera.hpp"
 
 class ofApp : public ofBaseApp {
     
@@ -17,8 +16,8 @@ public:
 private:
     ofImage image1;
     ImageBlender imageBlender;
-    void blendImages();
     CameraThread cameraThread;
-    Camera camera;
+    void blendImages();
+    void takePicture();
     
 };

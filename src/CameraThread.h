@@ -1,5 +1,4 @@
 #include "ofThread.h"
-#include "Camera.hpp"
 #include "ImageBlender.hpp"
 
 class CameraThread: public ofThread {
@@ -14,9 +13,9 @@ public:
     }
     
     void threadedFunction() {
-        ofSystem("raspistill -n -o data/image_lol.jpg -w 1920 -h 1080");
+        ofSystem("raspistill -n -o data/image_camera.jpg -w 1920 -h 1080");
         ofImage image;
-        image.load("image_lol.jpg");
+        image.load("image_camera.jpg");
         delegate->didTakePicture(image);
     }
     

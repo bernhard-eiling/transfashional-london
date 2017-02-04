@@ -26,7 +26,8 @@ void ImageBlender::blendImage(ofImage image) {
 
 void ImageBlender::update() {
     if (tempImage.isAllocated()) {
-        foregroundImage = tempImage;
+//        foregroundImage = tempImage;
+        backgroundImage = tempImage;
         tempImage.clear();
     }
     
