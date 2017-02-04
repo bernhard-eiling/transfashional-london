@@ -9,11 +9,12 @@ void ofApp::setup() {
     gpio4.setup("4");
     gpio4.export_gpio();
     gpio4.setdir_gpio("in");
-    demo.load("demo_2_1080.jpg");
     image1.load("image1.jpg");
-    image2.load("image2.jpg");
     imageBlender = ImageBlender();
-    imageBlender.backgroundImage = demo;
+    imageBlender.backgroundImage = image1;
+    
+//    camera = Camera();
+//    camera.delegate = &imageBlender;
 }
 
 void ofApp::update() {
@@ -22,7 +23,7 @@ void ofApp::update() {
     if (state_sensor == "1") {
         
     }
-    ofLog() << "motion: " << state_sensor;
+//    ofLog() << "motion: " << state_sensor;
 }
 
 void ofApp::draw() {
@@ -33,8 +34,7 @@ void ofApp::draw() {
 void ofApp::keyPressed(int key) {
     //  image1.grabScreen(0 ,0 ,ofGetWidth() ,ofGetHeight());
     //  image1.save("rendered.png");
-
-    cameraThread.delegate = imageBlender;
+    cameraThread.delegate = &imageBlender;
     cameraThread.startThread();
 }
 

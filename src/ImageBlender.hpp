@@ -31,6 +31,7 @@ private:
     float getXPosImages();
     float getYPosImages();
     ImageSize getImagesSize();
+    ofImage tempImage;
     
 };
 

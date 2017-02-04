@@ -15,9 +15,8 @@ ImageBlender::ImageBlender() {
     scaleForegroundImage = 1.0;
 }
 
-
 void ImageBlender::didTakePicture(ofImage image) {
-    ofLog() << "picture taken ";
+    tempImage = image;
 }
 
 void ImageBlender::blendImage(ofImage image) {
@@ -26,6 +25,11 @@ void ImageBlender::blendImage(ofImage image) {
 }
 
 void ImageBlender::update() {
+    if (tempImage.isAllocated()) {
+        foregroundImage = tempImage;
+        tempImage.clear();
+    }
+    
     if (scaleForegroundImage > 1.0) {
         scaleForegroundImage *= 0.995;
     }

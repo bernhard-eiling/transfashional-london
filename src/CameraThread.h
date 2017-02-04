@@ -7,16 +7,17 @@ class CameraThread: public ofThread {
     
 public:
     
-    ImageBlender delegate;
+    ImageBlender* delegate;
     
     CameraThread() {
         
     }
     
     void threadedFunction() {
-        Camera camera = Camera();
-        ofImage image = camera.takePicture();
-        delegate.didTakePicture(image);
+        ofSystem("raspistill -n -o data/image_lol.jpg -w 1920 -h 1080");
+        ofImage image;
+        image.load("image_lol.jpg");
+        delegate->didTakePicture(image);
     }
     
 };
