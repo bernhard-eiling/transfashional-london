@@ -24,25 +24,36 @@ void ImageBlender::blendImage(ofImage image) {
     scaleForegroundImage = 1.2;
 }
 
+void ImageBlender::screenCapture() {
+    ofLog() << "screencap begin";
+    backgroundImage.grabScreen(0 ,0 ,ofGetWidth() ,ofGetHeight());
+    backgroundImage = imageUtils.setAlphaChannel(backgroundImage, 200);
+//    backgroundImage.save("background.png");
+    foregroundImage.clear();
+    ofLog() << "screencap end";
+}
+
 void ImageBlender::update() {
     if (tempImage.isAllocated()) {
-//        foregroundImage = tempImage;
-        backgroundImage = tempImage;
+        foregroundImage = tempImage;
+        foregroundImage = imageUtils.setAlphaChannel(foregroundImage, 50);
         tempImage.clear();
     }
-    
+    /*
     if (scaleForegroundImage > 1.0) {
         scaleForegroundImage *= 0.995;
     }
     if (scaleForegroundImage < 1.0) {
         scaleForegroundImage = 1.0;
     }
+     */
 }
 
 void ImageBlender::draw() {
+//    ofBackground(0);
     ImagePoint position = imageUtils.getImagePosition(backgroundImage);
     ImageSize size = imageUtils.getImageSize(backgroundImage);
-    ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     float width =  size.width * scaleForegroundImage;
     float height = size.height * scaleForegroundImage;
     float xPos = (position.x - width / 2) + size.width / 2.0;
@@ -52,5 +63,8 @@ void ImageBlender::draw() {
         foregroundImage.draw(xPos, yPos, width, height);
     }
     ofDisableBlendMode();
+    if (foregroundImage.isAllocated()) {
+        screenCapture();
+    }
 }
 

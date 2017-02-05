@@ -31,3 +31,18 @@ float ImageUtils::getScale(ofImage image) {
         return ofGetHeight() / image.getHeight();
     }
 }
+
+ofImage ImageUtils::setAlphaChannel(ofImage image, int value) {
+    image.setImageType(OF_IMAGE_COLOR_ALPHA);
+    int w = image.getWidth();
+    int h = image.getHeight();
+    ofPixels & pixels = image.getPixels();
+    ofPixels alphaPixels;
+    alphaPixels.allocate(w, h, OF_IMAGE_GRAYSCALE);
+    ofColor greyColor;
+    greyColor.set(value);
+    alphaPixels.setColor(greyColor);
+    pixels.setChannel(3, alphaPixels);
+    image.setFromPixels(pixels);
+    return image;
+}

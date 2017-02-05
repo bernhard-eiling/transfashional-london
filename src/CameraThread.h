@@ -13,9 +13,9 @@ public:
     }
     
     void threadedFunction() {
-        ofSystem("raspistill -n -o data/image_camera.jpg -w 1920 -h 1080");
+        ofSystem("raspistill -n -o data/image_camera.png -w 1920 -h 1080");
         ofImage image;
-        image.load("image_camera.jpg");
+        image.load("image_camera.png");
         delegate->didTakePicture(image);
     }
     

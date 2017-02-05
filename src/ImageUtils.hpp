@@ -10,6 +10,7 @@
 #define ImageUtils_hpp
 
 #include "ofMain.h"
+#include "ofImage.h"
 
 struct ImagePoint {
     float x;
@@ -26,6 +27,7 @@ class ImageUtils {
 public:
     ImagePoint getImagePosition(ofImage image);
     ImageSize getImageSize(ofImage image);
+    ofImage setAlphaChannel(ofImage image, int value);
     
 private:
     float getScale(ofImage image);

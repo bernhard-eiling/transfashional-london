@@ -16,6 +16,7 @@ class ImageBlender {
     
 public:
     ImageBlender();
+    ImageUtils imageUtils;
     ofImage backgroundImage;
     ofImage foregroundImage;
     void blendImage(ofImage image);
@@ -24,14 +25,14 @@ public:
     void didTakePicture(ofImage image);
     
 private:
-    ImageUtils imageUtils;
-    
+    ofImage tempImage;
+    ofImage screenCaptureImage;
     bool animating;
     float scaleForegroundImage;
     float getXPosImages();
     float getYPosImages();
     ImageSize getImagesSize();
-    ofImage tempImage;
+    void screenCapture();
     
 };
 
